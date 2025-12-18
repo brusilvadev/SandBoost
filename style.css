@@ -1,0 +1,245 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  height: 100vh;
+  background: linear-gradient(#87ceeb 0%, #f7d794 60%, #edc988 100%);
+  overflow: hidden;
+  font-family: sans-serif;
+  position: relative;
+}
+
+/* --- CENÁRIO --- */
+.sun {
+  position: absolute;
+  top: 60px;
+  right: 120px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #fff3b0, #f9ca24);
+  border-radius: 50%;
+  box-shadow: 0 0 80px rgba(249,202,36,.7);
+}
+
+.dune {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+  height: 40%;
+  background: radial-gradient(120% 80% at 50% 100%, #f1c27d, #dca35d);
+  border-radius: 100% 100% 0 0;
+}
+
+.dune.back { height: 30%; opacity: .9; }
+.dune.front { height: 45%; left: -10%; }
+
+.heat {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: heatWave 4s infinite;
+  z-index: 10;
+}
+
+@keyframes heatWave {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+/* --- PLAYER --- */
+.character {
+  position: absolute;
+  bottom: 22%;
+  left: 50px;
+  width: 150px;
+  height: 190px;
+  background: url('./img/player.png') no-repeat bottom/contain;
+  z-index: 5;
+}
+
+.jumping-image {
+  background-image: url('./img/player_jump.png') !important;
+}
+
+.animar-pulo {
+  animation: pular .5s linear;
+}
+
+@keyframes pular {
+  0% { bottom: 22%; }
+  30% { bottom: 354px; }
+  70% { bottom: 350px; }
+  100% { bottom: 22%; }
+}
+
+/* --- INIMIGOS E ITENS --- */
+.cactus, .scorpion, .box {
+  position: absolute;
+  bottom: 22%;
+  left: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.cactus {
+  width: 100px;
+  height: 100px;
+  background-image: url('./img/cacto.png');
+}
+
+.scorpion {
+  width: 120px;
+  height: 80px;
+  background-image: url('./img/scorpion.png');
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  background-image: url('./img/box.png');
+}
+
+.move {
+  animation: moveLeft 1.5s linear;
+}
+
+@keyframes moveLeft {
+  from { left: 100%; }
+  to { left: -150px; }
+}
+
+/* --- TIRO --- */
+.bullet {
+  position: absolute;
+  width: 40px;
+  height: 16px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, transparent, #ff6a00);
+  box-shadow: 0 0 10px #ffae00;
+  animation: shoot 1.2s linear forwards;
+  z-index: 6;
+}
+
+@keyframes shoot {
+  to { transform: translateX(120vw); opacity: .4; }
+}
+
+/* --- HUD --- */
+.score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #5e2f0d;
+  z-index: 20;
+}
+
+.ammo {
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #5e2f0d;
+  z-index: 20;
+}
+
+#game-over-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 3rem;
+  color: #8B4513;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+  z-index: 20;
+}
+
+#restart-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2d1b00;
+  background: linear-gradient(#f7d794, #cfa96a);
+  border: 3px solid #8b5a2b;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #8b5a2b;
+  transition: all 0.15s ease;
+}
+
+#restart-btn:hover {
+  background: linear-gradient(#ffe6a3, #ddb977);
+}
+
+#restart-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #8b5a2b;
+}
+
+#game-win {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #f7d794, #c57c2c);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  color: #2d1b00;
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+#game-win h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 0 #fff2c1;
+}
+
+#game-win p {
+  font-size: 26px;
+  max-width: 600px;
+  margin-bottom: 15px;
+}
+
+#game-win span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+/* --- BOSS --- */
+.boss {
+  position: absolute;
+  bottom: 22%;
+  right: 40px;
+  width: 220px;
+  height: 220px;
+  background: url('./img/Boss.png') no-repeat bottom/contain;
+  z-index: 6;
+}
+
+/* --- PROJÉTIL DO BOSS --- */
+.poison {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #6aff6a, #1f7a1f);
+  border-radius: 50%;
+  box-shadow: 0 0 15px #6aff6a;
+  animation: poisonMove 2.2s linear forwards;
+  z-index: 6;
+}
+
+@keyframes poisonMove {
+  to { transform: translateX(-120vw); }
+}

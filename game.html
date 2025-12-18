@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>Jogo do Deserto - Clone Dino</title>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<div class="sun"></div>
+<div class="dune back"></div>
+<div class="dune front"></div>
+
+<div class="score">Pontos: <span id="placar">0</span></div>
+
+<div class="ammo">
+  🔫 <span id="ammo-count">6/6</span>
+</div>
+
+<div class="character" id="personagem"></div>
+
+<div id="enemy-container"></div>
+<div id="bullet-container"></div>
+
+<div id="game-over-text">
+  GAME OVER<br>
+
+  <button id="restart-btn">Reiniciar</button>
+</div>
+
+<div id="game-win">
+  <h1>🏆 VITÓRIA!</h1>
+  <p id="win-message"></p>
+  <span id="win-score"></span>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
