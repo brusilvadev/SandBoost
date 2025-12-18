@@ -55,6 +55,4 @@ Sobreviva ao calor, gerencie sua munição e prove que você é uma lenda das ar
 
 ---
 
-## 📁 Estrutura do Projeto
-
 
