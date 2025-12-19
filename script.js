@@ -260,5 +260,3 @@ function gameWin() {
     "O sol se põe no horizonte enquanto o Cowboy Mercenário segue seu caminho, " +
     "vitorioso, lendário e impossível de parar.";
 }
-
-

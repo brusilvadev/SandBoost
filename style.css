@@ -72,17 +72,17 @@ body {
   left: 50px;
   width: 150px;
   height: 190px;
-  background: url('./img/Player.png') no-repeat bottom/contain;
+  background: url('./img/player.png') no-repeat bottom/contain;
   z-index: 5;
 }
 
 /* --- ANIMAÇÃO ANDANDO / IDLE --- */
 .walking {
-  animation: walkAnim 5.9s steps(1) infinite;
+  animation: walkAnim 0.9s steps(1) infinite;
 }
 
 .defeat {
-  background-image: url('./img/Player_defeat.png') !important;
+  background-image: url('./img/player_defeat.png') !important;
   animation: none !important;
   transform: scale(1.7);
   transform-origin: bottom left;
@@ -90,15 +90,15 @@ body {
 
 @keyframes walkAnim {
   0% {
-    background-image: url('./img/Player.png');
+    background-image: url('./img/player.png');
   }
 
   50% {
-    background-image: url('./img/Player_walk.png');
+    background-image: url('./img/player_walk.png');
   }
 
   100% {
-    background-image: url('./img/Player.png');
+    background-image: url('./img/player.png');
   }
 }
 
@@ -310,6 +310,4 @@ body {
   to {
     transform: translateX(-120vw);
   }
-
 }
-
