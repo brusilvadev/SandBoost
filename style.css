@@ -78,7 +78,7 @@ body {
 
 /* --- ANIMAÇÃO ANDANDO / IDLE --- */
 .walking {
-  animation: walkAnim 0.9s steps(1) infinite;
+  animation: walkAnim 5.9s steps(1) infinite;
 }
 
 .defeat {
@@ -312,3 +312,4 @@ body {
   }
 
 }
+
