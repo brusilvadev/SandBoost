@@ -27,6 +27,7 @@ function iniciarAudio() {
 /* ================== ESTADO ================== */
 let pontos = 0;
 let isGameOver = false;
+let isJumping = false;
 
 /* ================== MUNIÇÃO ================== */
 const maxAmmo = 6;
@@ -45,14 +46,21 @@ let bossLife = 6;
 let bossDefeated = false;
 let bossFinalizado = false;
 
+/* ================== PLAYER IDLE ================== */
+personagem.classList.add('walking');
+
 /* ================== PULO ================== */
 function pular() {
-  if (isGameOver) return;
-  if (personagem.classList.contains('animar-pulo')) return;
+  if (isGameOver || isJumping) return;
 
+  isJumping = true;
+  personagem.classList.remove('walking');
   personagem.classList.add('animar-pulo', 'jumping-image');
+
   setTimeout(() => {
     personagem.classList.remove('animar-pulo', 'jumping-image');
+    personagem.classList.add('walking');
+    isJumping = false;
   }, 500);
 }
 
@@ -217,6 +225,12 @@ const loop = setInterval(() => {
 function gameOver() {
   if (isGameOver) return;
   isGameOver = true;
+
+
+  personagem.classList.remove('walking', 'animar-pulo', 'jumping-image');
+  
+
+  personagem.classList.add('defeat');
 
   bgMusic.pause();
   bgMusic.currentTime = 0;
