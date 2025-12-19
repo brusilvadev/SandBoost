@@ -61,7 +61,7 @@ function pular() {
     personagem.classList.remove('animar-pulo', 'jumping-image');
     personagem.classList.add('walking');
     isJumping = false;
-  }, 500);
+  }, 1200);
 }
 
 /* ================== TIRO DO PLAYER ================== */
@@ -260,3 +260,4 @@ function gameWin() {
     "O sol se põe no horizonte enquanto o Cowboy Mercenário segue seu caminho, " +
     "vitorioso, lendário e impossível de parar.";
 }
+
